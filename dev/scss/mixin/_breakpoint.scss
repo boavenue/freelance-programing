@@ -1,0 +1,17 @@
+@mixin breakpoint-min-max($screen-min, $screen-max) {
+  @media (min-width: $screen-min + "px") and (max-width: $screen-max + "px") {
+    @content;
+  }
+}
+
+@mixin breakpoint-down($screen) {
+  @media (max-width: $screen + "px") {
+    @content;
+  }
+}
+
+@mixin breakpoint-up($screen) {
+  @media (min-width: $screen + "px") {
+    @content;
+  }
+}

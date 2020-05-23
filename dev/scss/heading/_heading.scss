@@ -1,0 +1,139 @@
+@import "../mixin/breakpoint";
+.title {
+	&-h5 {
+		font-family: qsand-700;
+		font-size: 21px;
+		color: map-get($fvn-color, blackd);
+	}
+	&-h2 {
+		font-family: qsand-600;
+		font-size: 38px;
+		color: map-get($fvn-color, black);
+		@include breakpoint-down(1199) {
+			font-size: 26px;
+		}
+	}
+	&-h3 {
+		font-family: qsand-600;
+		font-size: 28px;
+		color: map-get($fvn-color, black);
+		@include breakpoint-down(575) {
+			font-size: 14px;
+		}
+	}
+}
+
+.cl-white {
+	color: #fff !important;
+}
+
+.cl-black {
+	color: map-get($fvn-color, black) !important;
+}
+
+.cl-blackd {
+	color: map-get($fvn-color, blackd) !important;
+}
+
+.cl-yellow {
+	color: #f5a623;
+}
+
+.cl-text {
+	color: map-get($fvn-color, textColor) !important;
+}
+
+.lh-xl-15 {
+	@include breakpoint-down(1199) {
+		line-height: 1.5;
+	}
+}
+
+.lh-15 {
+	line-height: 1.5;
+}
+
+.lh-16 {
+	line-height: 1.6;
+}
+
+.text-editor {
+	text-align: justify;
+	p {
+		&:not(:last-child) {
+			margin-bottom: 25px;
+		}
+	}
+}
+
+.text-sm-13 {
+	@include breakpoint-down(575) {
+		font-size: 13px !important;
+	}
+}
+
+.text-sm-12 {
+	@include breakpoint-down(575) {
+		font-size: 12px !important;
+	}
+}
+
+.text-sm-14 {
+	@include breakpoint-down(575) {
+		font-size: 14px !important;
+	}
+}
+
+.text-sm-12 {
+	@include breakpoint-down(575) {
+		font-size: 12px !important;
+	}
+}
+
+.text-11 {
+	font-size: 11px;
+}
+
+.text-12 {
+	font-size: 12px;
+}
+
+.text-13 {
+	font-size: 13px;
+}
+
+.text-15 {
+	font-size: 15px;
+}
+
+.text-16 {
+	font-size: 16px;
+}
+
+.text-18 {
+	font-size: 18px;
+}
+
+.text-20 {
+	font-size: 20px;
+}
+
+.qsand-300 {
+	font-family: qsand-300 !important;
+}
+
+.qsand-400 {
+	font-family: qsand-400 !important;
+}
+
+.qsand-500 {
+	font-family: qsand-500 !important;
+}
+
+.qsand-600 {
+	font-family: qsand-600 !important;
+}
+
+.qsand-700 {
+	font-family: qsand-700 !important;
+}

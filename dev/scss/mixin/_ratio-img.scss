@@ -1,0 +1,21 @@
+@mixin ratio-img($padding-top) {
+  &:before {
+    content: "";
+    display: block;
+    padding-top: $padding-top;
+  }
+}
+
+@mixin ratio-img__img() {
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@mixin ratio-img__img_nonobject($top, $left, $x, $y) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  width: 100%;
+  transform: translate($x, $y);
+}

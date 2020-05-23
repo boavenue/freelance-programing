@@ -1,0 +1,79 @@
+@import "../config";
+.fvn-product-current {
+	height: 485px;
+	@include breakpoint-down(1199) {
+		height: auto;
+		padding-bottom: 20px;
+	}
+	&__list {
+		li {
+			position: relative;
+		}
+	}
+	&__status {
+		position: absolute;
+		top: 0;
+		right: 10px;
+		padding: 4px 10px;
+		display: block;
+		border-radius: 2px;
+		background-color: rgba(#ff7500, 0.76);
+	}
+	&__list-wrap {
+		position: relative;
+		z-index: 3;
+		text-align: center;
+		background: #fff;
+		box-shadow: 0 0 82px 0 rgba(0, 0, 0, 0.17);
+		border-radius: 8px;
+	}
+	&-list__price {
+		display: block;
+	}
+	&.bg-settings {
+		@include breakpoint-down(1199) {
+			background-position: 60% 50%;
+		}
+	}
+	.custom-readmore {
+		@include breakpoint-down(1199) {
+			height: 45px;
+			overflow: hidden;
+		}
+		@include breakpoint-down(575) {
+			height: 40px;
+			overflow: hidden;
+		}
+		&.toggle {
+			height: auto;
+			overflow: visible;
+		}
+	}
+}
+
+.name-product {
+	color: map-get($fvn-color, blackd);
+	font-size: 13px;
+	font-family: qsand-600;
+}
+
+.price-product {
+	color: map-get($fvn-color, lightOrange);
+	font-size: 13px;
+	font-family: qsand-600;
+}
+
+.bg-settings {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.link {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 2;
+}
