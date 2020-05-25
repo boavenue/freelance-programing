@@ -1,0 +1,14 @@
+.block-card .card-title {
+  -webkit-transition: 250ms ease-in-out;
+  -o-transition: 250ms ease-in-out;
+  transition: 250ms ease-in-out; }
+  .block-card .card-title:hover {
+    text-decoration: underline; }
+
+.block-card .card-img-top {
+  max-height: 220px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  width: 100%; }

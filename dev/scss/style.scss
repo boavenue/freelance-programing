@@ -6,6 +6,7 @@
 @import "node_modules/bootstrap/scss/utilities/_align";
 @import "node_modules/bootstrap/scss/utilities/_text";
 @import "node_modules/bootstrap/scss/utilities/_position";
+@import "node_modules/bootstrap/scss/_navbar";
 @import "node_modules/bootstrap/scss/_buttons";
 
 // Heading
@@ -17,12 +18,8 @@
 @import "mixin/space";
 
 //Sections
-@import "sections/product-current-01";
-@import "sections/where-buy";
-@import "sections/misson";
-@import "sections/contact";
-@import "sections/product";
-@import "sections/detail-product";
+@import "sections/slider-component";
+@import "sections/block-card-component";
 
 // Area
 @import "common/header";
@@ -39,3 +36,4 @@
 @include font-face(muli-500, "../fonts/Muli-Medium");
 @include font-face(muli-600, "../fonts/Muli-SemiBold");
 @include font-face(muli-700, "../fonts/Muli-Bold");
+@include font-face(muli-800, "../fonts/Muli-Black");

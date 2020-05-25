@@ -153,24 +153,24 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.fvn-img {
+.img-custom {
 	max-width: 100%;
 	height: auto;
 }
 
-.fvn {
+.freelance {
 	.container {
 		@include breakpoint-up(576) {
-			max-width: 660px;
+			max-width: 630px;
 		}
 		@include breakpoint-up(768) {
-			max-width: 840px;
+			max-width: 810px;
 		}
 		@include breakpoint-up(992) {
-			max-width: 1020px;
+			max-width: 990px;
 		}
 		@include breakpoint-up(1200) {
-			max-width: 1200px;
+			max-width: 1170px;
 		}
 	}
 }
@@ -184,23 +184,4 @@ body {
 }
 .w70 {
 	width: 70%;
-}
-
-.fvn-overlay {
-	@include breakpoint-down(1199) {
-		&:before {
-			content: "";
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			background-color: rgba(#000000, 0.37);
-		}
-	}
-}
-
-.hr-custom-01 {
-	height: 1px;
-	background-color: rgba(0, 0, 0, 0.1);
 }

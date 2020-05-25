@@ -2,8 +2,8 @@ $.main = {
 	/*------------------------------------------------------------
 	    0.1. Dropdown header
     ------------------------------------------------------------*/
-	dropDownLangue: function() {
-		$(".fvn-header__menu-item.language").on("click", function() {
+	dropDownLangue: function () {
+		$(".fvn-header__menu-item.language").on("click", function () {
 			$(this).toggleClass("open");
 			$(".language-list").toggleClass("open");
 		});
@@ -11,13 +11,13 @@ $.main = {
 	/*------------------------------------------------------------
 	    0.2. Scrollspy
     ------------------------------------------------------------*/
-	scrollSpy: function() {
-		$(window).on("scroll", function() {
+	scrollSpy: function () {
+		$(window).on("scroll", function () {
 			var eachSection = $(".fvn-section");
 			var navigation = $(".fvn-header__menu");
 			var navigationHeight = $(".fvn-header").outerHeight();
 			var curPostionScroll = $(this).scrollTop();
-			eachSection.each(function() {
+			eachSection.each(function () {
 				var topCurScroll = $(this).offset().top - navigationHeight;
 				var bottomCurScroll = topCurScroll + $(this).outerHeight();
 				if (
@@ -40,7 +40,7 @@ $.main = {
 		var widthBrow = $(window).width();
 		$(".fvn-header__menu-item:not('.language, .hotline') a").on(
 			"click",
-			function(event) {
+			function (event) {
 				event.preventDefault();
 				var curSection = $(this).attr("href");
 				var headerHeight = $(".nheader").height();
@@ -65,8 +65,8 @@ $.main = {
 	/*------------------------------------------------------------
 	    0.3 Affix header
     ------------------------------------------------------------*/
-	affixHeader: function() {
-		$(window).on("scroll", function() {
+	affixHeader: function () {
+		$(window).on("scroll", function () {
 			var headerElement = $(".fvn-header__wrap"),
 				heightHeader = headerElement.height(),
 				scrollTop = $(window).scrollTop();
@@ -80,123 +80,80 @@ $.main = {
 	/*------------------------------------------------------------
 	    0.4 Menu mobile
     ------------------------------------------------------------*/
-	menuMobile: function() {
+	menuMobile: function () {
 		var hamburgerEle = $(".fvn-header__mobile");
 		var headerRightMenu = $(".fvn-header__menu-mobile");
-		hamburgerEle.on("click", function() {
+		hamburgerEle.on("click", function () {
 			$(this).toggleClass("change");
 			headerRightMenu.toggleClass("open");
 		});
 	},
-	/*------------------------------------------------------------
-	    0.5 Slider
-    ------------------------------------------------------------*/
-	initSlider: function() {
+
+	sliderBanner: function () {
+		var sliderElement = $(".slider-banner");
 		var initOptions = {
 			dots: false,
-			infinite: false,
-			speed: 500,
-			slidesToShow: 5,
-			prevArrow:
-				"<div class='slick-prev pull-left'><img src='../images/arrow-prev.png' class='fvn-img'></div>",
-			nextArrow:
-				"<div class='slick-next pull-right'><img src='../images/arrow-prev.png' class='fvn-img'></div>",
-			responsive: [
-				{
-					breakpoint: 1199,
-					settings: {
-						slidesToShow: 3,
-						slidesToScroll: 3,
-					},
-				},
-				{
-					breakpoint: 767,
-					settings: {
-						slidesToShow: 2,
-						slidesToScroll: 2,
-					},
-				},
-			],
+			arrows: false,
+			infinite: true,
+			autoplay: true,
+			speed: 900,
+			fade: true,
+			pauseOnHover: false,
+			slidesToShow: 1,
 		};
-		var sliderElement = $(".fvn-brand-slider ul");
+
+		sliderElement.on("init", function (event, slick, direction) {
+			console.log(slick);
+			let totalItem = slick.$slides.length;
+			$(".slider-banner-total").text(totalItem);
+		});
+
 		sliderElement.slick(initOptions);
-	},
-	/*------------------------------------------------------------
-	    0.5 Readmore
-    ------------------------------------------------------------*/
-	readMore: function(readMoreElement, readMoreContent) {
-		var readMoreElement = $(readMoreElement);
-		var customReadMore = $(readMoreContent);
-		readMoreElement.on("click", function(e) {
-			e.preventDefault();
-			$(this).toggleClass("toggle");
-			customReadMore.toggleClass("toggle");
-			var toggleTextShow = $(this).attr("data-toggle-show");
-			var toggleTextOff = $(this).attr("data-toggle-off");
-			var changeTitle = $(this).find(".read-more__title");
-			if (customReadMore.hasClass("toggle")) {
-				changeTitle.text(toggleTextShow);
-			} else {
-				changeTitle.text(toggleTextOff);
+
+		sliderElement.on("swipe", function (
+			event,
+			slick,
+			direction,
+			currentSlide,
+			nextSlide
+		) {
+			if (direction === "right") {
+				$(".slider-banner-arrow__next").click();
+			}
+			if (direction === "left") {
+				$(".slider-banner-arrow__prev").click();
 			}
 		});
-	},
-	/*------------------------------------------------------------
-	    0.6 Detail image product
-    ------------------------------------------------------------*/
-	setImageCurrent: function() {
-		var $detailProductCurrentOnMobile = $(".fvn-product-current-detail");
-		var currentLinkDesktop = $detailProductCurrentOnMobile.attr(
-			"data-bg-product-desktop"
-		);
-		var currentLinkMobile = $detailProductCurrentOnMobile.attr(
-			"data-bg-product-mobile"
-		);
 
-		var detailProductBody = $("body#sanpham-chitiet");
+		sliderElement.on("afterChange", function (
+			event,
+			slick,
+			currentSlide,
+			nextSlide
+		) {
+			let currentItem = (currentSlide ? currentSlide : 0) + 1;
+			$(".slider-banner-current").text(currentItem);
+		});
 
-		var setCurrentLinkBackGround = function(element, link) {
-			element.css("background-image", `url(${link})`);
-		};
+		$(".slider-banner-arrow__prev").on("click", function () {
+			$(".slider-banner").slick("slickPrev");
+			let currentIndex = $(".slick-current").attr("data-slick-index");
+			currentIndex++;
+			$(".slider-banner-current").text(currentIndex);
+		});
 
-		if (detailProductBody) {
-			$(window).on("resize", function() {
-				var timer = 0;
-				window.clearTimeout(timer);
-				timer = setTimeout(() => {
-					var windowWidth = $(window).width();
-					windowWidth < 576
-						? setCurrentLinkBackGround(
-								$detailProductCurrentOnMobile,
-								currentLinkMobile
-						  )
-						: setCurrentLinkBackGround(
-								$detailProductCurrentOnMobile,
-								currentLinkDesktop
-						  );
-				}, 0);
-			});
-			$(window).trigger("resize");
-		}
+		$(".slider-banner-arrow__next").on("click", function () {
+			$(".slider-banner").slick("slickNext");
+			let currentIndex = $(".slick-current").attr("data-slick-index");
+			currentIndex++;
+			$(".slider-banner-current").text(currentIndex);
+		});
 	},
 };
-$(function() {
-	$.main.dropDownLangue();
-	$.main.scrollSpy();
+$(function () {
+	// $.main.dropDownLangue();
+	// $.main.scrollSpy();
 	//   $.main.affixHeader();
-	$.main.menuMobile();
-	$.main.initSlider();
-	$.main.readMore(
-		".fvn-misson__certification .read-more",
-		".fvn-misson__certification .custom-readmore"
-	);
-	$.main.readMore(
-		".fvn-product-current .read-more",
-		".fvn-product-current .custom-readmore"
-	);
-	$.main.readMore(
-		".fvn-detail-product__introduce  .read-more",
-		".fvn-detail-product__introduce-readmore"
-	);
-	$.main.setImageCurrent();
+	// $.main.menuMobile();
+	$.main.sliderBanner();
 });

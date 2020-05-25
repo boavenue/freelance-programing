@@ -5,25 +5,73 @@ $spacers: () !default;
   $spacers: map-merge(
     (
       $i: (
-        $spacer * ($i / $default-px)
-      )
+        $spacer * ($i / $default-px),
+      ),
     ),
     $spacers
   );
 }
 
-$fvn-color: (
-  buttonColor: #085d2f,
-  textColor: rgba(74, 74, 74, 1),
-  pineGreen: #09321b,
-  lightOrange: #ff9d3c,
-  orangeYellow: #fdb515,
-  black: #000,
-  blackd: #101010,
-  darkblue: #00352f,
-  tomato: rgba(#de2000, 0.7),
-  coral: #f65555,
-  azure37: rgba(#1b9fff, 0.37),
-  azure: #1ba8ff,
-  brownishGrey: #5f5f5f
+$settings-color: (
+  colorBluePurple: #4540db,
+  colorDarkBlack: #212139,
+  colorDarkBlue: #3abcca,
+  colorBlue: #66f0e3,
+  colorlightBlue: #525a6d,
+  colorlightBlue01: rgba(194, 222, 234, 0.2),
+  colorlightGrey: rgba(203, 205, 211, 0.3),
+  colorlightGrey01: #cbcdd3,
+  colorRed: #f81e40,
+  colorYellow: #fb8758,
+  colorPurple: #c23bd5,
+  colorGreen: #25ce95,
+  colorDarkBlackHover: #000,
 );
+
+.cl-white {
+  color: #fff !important;
+}
+
+.cl-bluepurple {
+  color: map-get($settings-color, colorBluePurple) !important;
+}
+
+.cl-darkblack {
+  color: map-get($settings-color, colorDarkBlack) !important;
+}
+
+.cl-darkblue {
+  color: map-get($settings-color, colorDarkBlue) !important;
+}
+
+.cl-blue {
+  color: map-get($settings-color, colorBlue) !important;
+}
+
+.cl-lightblue {
+  color: map-get($settings-color, colorlightBlue) !important;
+}
+
+.cl-lightgrey {
+  color: map-get($settings-color, colorlightGrey) !important;
+}
+
+.cl-lightgrey01 {
+  color: map-get($settings-color, colorlightGrey01) !important;
+}
+
+.cl-red {
+  color: map-get($settings-color, colorRed) !important;
+}
+
+.cl-yellow {
+  color: map-get($settings-color, colorYellow) !important;
+}
+
+.cl-purple {
+  color: map-get($settings-color, colorPurple) !important;
+}
+
+.cl-green {
+  color: map-get($settings-color, colorGreen) !important;
+}

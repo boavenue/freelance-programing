@@ -1,47 +1,4 @@
 @import "../mixin/breakpoint";
-.title {
-	&-h5 {
-		font-family: qsand-700;
-		font-size: 21px;
-		color: map-get($fvn-color, blackd);
-	}
-	&-h2 {
-		font-family: qsand-600;
-		font-size: 38px;
-		color: map-get($fvn-color, black);
-		@include breakpoint-down(1199) {
-			font-size: 26px;
-		}
-	}
-	&-h3 {
-		font-family: qsand-600;
-		font-size: 28px;
-		color: map-get($fvn-color, black);
-		@include breakpoint-down(575) {
-			font-size: 14px;
-		}
-	}
-}
-
-.cl-white {
-	color: #fff !important;
-}
-
-.cl-black {
-	color: map-get($fvn-color, black) !important;
-}
-
-.cl-blackd {
-	color: map-get($fvn-color, blackd) !important;
-}
-
-.cl-yellow {
-	color: #f5a623;
-}
-
-.cl-text {
-	color: map-get($fvn-color, textColor) !important;
-}
 
 .lh-xl-15 {
 	@include breakpoint-down(1199) {
@@ -57,7 +14,7 @@
 	line-height: 1.6;
 }
 
-.text-editor {
+.txt-editor {
 	text-align: justify;
 	p {
 		&:not(:last-child) {
@@ -66,74 +23,96 @@
 	}
 }
 
-.text-sm-13 {
+.txt-sm-13 {
 	@include breakpoint-down(575) {
 		font-size: 13px !important;
 	}
 }
 
-.text-sm-12 {
+.txt-sm-12 {
 	@include breakpoint-down(575) {
 		font-size: 12px !important;
 	}
 }
 
-.text-sm-14 {
+.txt-sm-14 {
 	@include breakpoint-down(575) {
 		font-size: 14px !important;
 	}
 }
 
-.text-sm-12 {
+.txt-sm-12 {
 	@include breakpoint-down(575) {
 		font-size: 12px !important;
 	}
 }
 
-.text-11 {
+.txt-11 {
 	font-size: 11px;
 }
 
-.text-12 {
+.txt-12 {
 	font-size: 12px;
 }
 
-.text-13 {
+.txt-13 {
 	font-size: 13px;
 }
 
-.text-15 {
+.txt-14 {
+	font-size: 14px;
+}
+
+.txt-15 {
 	font-size: 15px;
 }
 
-.text-16 {
+.txt-16 {
 	font-size: 16px;
 }
 
-.text-18 {
+.txt-18 {
 	font-size: 18px;
 }
 
-.text-20 {
+.txt-20 {
 	font-size: 20px;
 }
 
-.qsand-300 {
-	font-family: qsand-300 !important;
+.txt-24 {
+	font-size: 24px;
 }
 
-.qsand-400 {
-	font-family: qsand-400 !important;
+.txt-32 {
+	font-size: 32px;
 }
 
-.qsand-500 {
-	font-family: qsand-500 !important;
+.txt-up1400-50 {
+	@include breakpoint-up(1400) {
+		font-size: 50px;
+	}
 }
 
-.qsand-600 {
-	font-family: qsand-600 !important;
+.muli-300 {
+	font-family: muli-300 !important;
 }
 
-.qsand-700 {
-	font-family: qsand-700 !important;
+.muli-400 {
+	font-family: muli-400 !important;
+}
+
+.muli-500 {
+	font-family: muli-500 !important;
+}
+
+.muli-600 {
+	font-family: muli-600 !important;
+}
+
+.muli-700 {
+	font-family: muli-700 !important;
+}
+
+.muli-800 {
+	font-family: muli-800 !important;
 }

@@ -1,38 +1,14 @@
-.fvn-footer {
-  border-top: 2px solid #c78431;
-  background-color: map-get($fvn-color, pineGreen);
-  ul {
-    position: relative;
-  }
-  .item {
-    font-size: 13px;
-    font-family: qsand-500;
-    color: rgba(255, 255, 255, 0.48);
-  }
-  &__logo {
-    width: 125px;
-    @include breakpoint-down(1199) {
-      width: 110px;
-      position: absolute;
-      top: -35px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  }
-  &__hot-line {
-    > li {
-      &:not(:first-child) {
-        &:before {
-          content: "";
-          width: 5px;
-          height: 5px;
-          display: inline-block;
-          vertical-align: middle;
-          border-radius: 50%;
-          background-color: #fff;
-          margin: 0 10px;
-        }
-      }
-    }
-  }
+.freelance-footer {
+   position: relative;
+   padding-top: 95px;
+   background: map-get($settings-color, colorDarkBlack);
+}
+
+.footer-triangle {
+   position: absolute;
+   top: 0;
+}
+
+.coppyright {
+   background: map-get($settings-color, colorBluePurple);
 }

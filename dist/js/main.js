@@ -79,92 +79,55 @@ $.main = {
       headerRightMenu.toggleClass("open");
     });
   },
-
-  /*------------------------------------------------------------
-      0.5 Slider
-     ------------------------------------------------------------*/
-  initSlider: function initSlider() {
+  sliderBanner: function sliderBanner() {
+    var sliderElement = $(".slider-banner");
     var initOptions = {
       dots: false,
-      infinite: false,
-      speed: 500,
-      slidesToShow: 5,
-      prevArrow: "<div class='slick-prev pull-left'><img src='../images/arrow-prev.png' class='fvn-img'></div>",
-      nextArrow: "<div class='slick-next pull-right'><img src='../images/arrow-prev.png' class='fvn-img'></div>",
-      responsive: [{
-        breakpoint: 1199,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3
-        }
-      }, {
-        breakpoint: 767,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2
-        }
-      }]
+      arrows: false,
+      infinite: true,
+      autoplay: true,
+      speed: 900,
+      fade: true,
+      pauseOnHover: false,
+      slidesToShow: 1
     };
-    var sliderElement = $(".fvn-brand-slider ul");
+    sliderElement.on("init", function (event, slick, direction) {
+      console.log(slick);
+      var totalItem = slick.$slides.length;
+      $(".slider-banner-total").text(totalItem);
+    });
     sliderElement.slick(initOptions);
-  },
+    sliderElement.on("swipe", function (event, slick, direction, currentSlide, nextSlide) {
+      if (direction === "right") {
+        $(".slider-banner-arrow__next").click();
+      }
 
-  /*------------------------------------------------------------
-      0.5 Readmore
-     ------------------------------------------------------------*/
-  readMore: function readMore(readMoreElement, readMoreContent) {
-    var readMoreElement = $(readMoreElement);
-    var customReadMore = $(readMoreContent);
-    readMoreElement.on("click", function (e) {
-      e.preventDefault();
-      $(this).toggleClass("toggle");
-      customReadMore.toggleClass("toggle");
-      var toggleTextShow = $(this).attr("data-toggle-show");
-      var toggleTextOff = $(this).attr("data-toggle-off");
-      var changeTitle = $(this).find(".read-more__title");
-
-      if (customReadMore.hasClass("toggle")) {
-        changeTitle.text(toggleTextShow);
-      } else {
-        changeTitle.text(toggleTextOff);
+      if (direction === "left") {
+        $(".slider-banner-arrow__prev").click();
       }
     });
-  },
-
-  /*------------------------------------------------------------
-      0.6 Detail image product
-     ------------------------------------------------------------*/
-  setImageCurrent: function setImageCurrent() {
-    var $detailProductCurrentOnMobile = $(".fvn-product-current-detail");
-    var currentLinkDesktop = $detailProductCurrentOnMobile.attr("data-bg-product-desktop");
-    var currentLinkMobile = $detailProductCurrentOnMobile.attr("data-bg-product-mobile");
-    var detailProductBody = $("body#sanpham-chitiet");
-
-    var setCurrentLinkBackGround = function setCurrentLinkBackGround(element, link) {
-      element.css("background-image", "url(".concat(link, ")"));
-    };
-
-    if (detailProductBody) {
-      $(window).on("resize", function () {
-        var timer = 0;
-        window.clearTimeout(timer);
-        timer = setTimeout(function () {
-          var windowWidth = $(window).width();
-          windowWidth < 576 ? setCurrentLinkBackGround($detailProductCurrentOnMobile, currentLinkMobile) : setCurrentLinkBackGround($detailProductCurrentOnMobile, currentLinkDesktop);
-        }, 0);
-      });
-      $(window).trigger("resize");
-    }
+    sliderElement.on("afterChange", function (event, slick, currentSlide, nextSlide) {
+      var currentItem = (currentSlide ? currentSlide : 0) + 1;
+      $(".slider-banner-current").text(currentItem);
+    });
+    $(".slider-banner-arrow__prev").on("click", function () {
+      $(".slider-banner").slick("slickPrev");
+      var currentIndex = $(".slick-current").attr("data-slick-index");
+      currentIndex++;
+      $(".slider-banner-current").text(currentIndex);
+    });
+    $(".slider-banner-arrow__next").on("click", function () {
+      $(".slider-banner").slick("slickNext");
+      var currentIndex = $(".slick-current").attr("data-slick-index");
+      currentIndex++;
+      $(".slider-banner-current").text(currentIndex);
+    });
   }
 };
 $(function () {
-  $.main.dropDownLangue();
-  $.main.scrollSpy(); //   $.main.affixHeader();
-
-  $.main.menuMobile();
-  $.main.initSlider();
-  $.main.readMore(".fvn-misson__certification .read-more", ".fvn-misson__certification .custom-readmore");
-  $.main.readMore(".fvn-product-current .read-more", ".fvn-product-current .custom-readmore");
-  $.main.readMore(".fvn-detail-product__introduce  .read-more", ".fvn-detail-product__introduce-readmore");
-  $.main.setImageCurrent();
+  // $.main.dropDownLangue();
+  // $.main.scrollSpy();
+  //   $.main.affixHeader();
+  // $.main.menuMobile();
+  $.main.sliderBanner();
 });
