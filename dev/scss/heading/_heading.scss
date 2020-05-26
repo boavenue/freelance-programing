@@ -85,6 +85,9 @@
 
 .txt-32 {
 	font-size: 32px;
+	@include breakpoint-down(575) {
+		font-size: 24px;
+	}
 }
 
 .txt-up1400-50 {

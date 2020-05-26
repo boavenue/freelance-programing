@@ -81,11 +81,18 @@ $.main = {
 	    0.4 Menu mobile
     ------------------------------------------------------------*/
 	menuMobile: function () {
-		var hamburgerEle = $(".fvn-header__mobile");
-		var headerRightMenu = $(".fvn-header__menu-mobile");
+		var hamburgerEle = $(".hambuger-menu");
+		var headerRightMenu = $("#freelance-nav");
+		var backgroundOverlay = $(".bg-overlay");
 		hamburgerEle.on("click", function () {
 			$(this).toggleClass("change");
+			backgroundOverlay.toggleClass("open");
 			headerRightMenu.toggleClass("open");
+		});
+		backgroundOverlay.on("click", function () {
+			$(this).removeClass("open");
+			hamburgerEle.removeClass("change");
+			headerRightMenu.removeClass("open");
 		});
 	},
 
@@ -103,7 +110,7 @@ $.main = {
 		};
 
 		sliderElement.on("init", function (event, slick, direction) {
-			console.log(slick);
+			// console.log(slick);
 			let totalItem = slick.$slides.length;
 			$(".slider-banner-total").text(totalItem);
 		});
@@ -154,6 +161,6 @@ $(function () {
 	// $.main.dropDownLangue();
 	// $.main.scrollSpy();
 	//   $.main.affixHeader();
-	// $.main.menuMobile();
+	$.main.menuMobile();
 	$.main.sliderBanner();
 });

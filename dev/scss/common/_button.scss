@@ -1,0 +1,26 @@
+.btn {
+   &-default {
+      min-width: 170px;
+      border: 1px solid map-get($settings-color, colorlightGrey01);
+      color: map-get($settings-color, colorlightGrey01);
+      padding: 9px 12px 10px;
+      border-radius: 30px;
+      font-size: 12px;
+      outline: 0;
+      text-transform: uppercase;
+      box-shadow: none;
+
+      &:hover {
+         color: #fff;
+         background-color: map-get($settings-color, colorBluePurple);
+         border-color: map-get($settings-color, colorBluePurple);
+      }
+      &:focus {
+         outline: 0;
+         box-shadow: none;
+         color: #fff;
+         background-color: map-get($settings-color, colorBluePurple);
+         border-color: map-get($settings-color, colorBluePurple);
+      }
+   }
+}

@@ -7,13 +7,30 @@
 .triangle-topleft {
    width: 0;
    height: 0;
-   border-top: 100px solid #fff;
-   border-right: 100px solid transparent;
+   border-top: 70px solid #fff;
+   border-right: 70px solid transparent;
+   @include breakpoint-up(1400) {
+      border-top: 100px solid #fff;
+      border-right: 100px solid transparent;
+   }
+   @include breakpoint-down(575) {
+      border-top: 50px solid #fff;
+      border-right: 50px solid transparent;
+   }
 }
 
 .triangle-bottomright {
    width: 0;
    height: 0;
-   border-bottom: 100px solid map-get($settings-color, colorBluePurple);
-   border-left: 100px solid transparent;
+   border-bottom: 70px solid map-get($settings-color, colorBluePurple);
+   border-left: 70px solid transparent;
+   @include breakpoint-up(1400) {
+      border-bottom: 100px solid map-get($settings-color, colorBluePurple);
+      border-left: 100px solid transparent;
+   }
+
+   @include breakpoint-down(575) {
+      border-bottom: 50px solid map-get($settings-color, colorBluePurple);
+      border-left: 50px solid transparent;
+   }
 }

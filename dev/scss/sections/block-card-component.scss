@@ -1,14 +1,193 @@
+@mixin background-overlay($background, $transition) {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background-color: $background;
+   z-index: 1;
+   opacity: 0;
+   visibility: hidden;
+   transition: $transition;
+}
+
+@mixin corner-post($border-color, $background) {
+   position: absolute;
+   top: 0;
+   right: 0;
+   border-style: solid;
+   border-color: $border-color;
+   background-color: $background;
+   display: block;
+   border-width: 0;
+}
+
+@mixin hover-corner-post($border-color, $background, $border-width) {
+   border-radius: 0;
+   border-width: $border-width;
+   border-color: $border-color;
+   background-color: $background;
+}
+
 .block-card {
-   .card-title {
-      transition: 250ms ease-in-out;
+   &__item {
       &:hover {
-         text-decoration: underline;
+         .card-thumbnail {
+            &:before {
+               @include hover-corner-post(
+                  #fff #fff transparent transparent,
+                  map-get($settings-color, colorBluePurple),
+                  25px
+               );
+            }
+            &:after {
+               opacity: 1;
+               visibility: visible;
+            }
+         }
       }
    }
-   .card-img-top {
-      max-height: 220px;
-      object-fit: cover;
-      object-position: center;
-      width: 100%;
+   .card {
+      &-thumbnail {
+         position: relative;
+         &:before {
+            content: "";
+            @include corner-post(
+               map-get($settings-color, colorBluePurple) map-get($settings-color, colorBluePurple) transparent
+                  transparent,
+               #fff
+            );
+            z-index: 2;
+            transition: 0.2s;
+         }
+         &:after {
+            @include background-overlay(rgba(255, 255, 255, 0.8), 300ms ease-in-out);
+         }
+      }
+      &-title {
+         transition: 250ms ease-in-out;
+         .truncate-text {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+         }
+         &:hover {
+            text-decoration: underline;
+         }
+      }
+      &-description {
+         .truncate-text {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+         }
+      }
+      &-img-top {
+         max-height: 220px;
+         object-fit: cover;
+         object-position: center;
+         width: 100%;
+         display: block;
+      }
+   }
+}
+
+.grid-card {
+   &__item {
+      &:hover {
+         .card-thumbnail {
+            &:before {
+               @include hover-corner-post(
+                  #fff #fff transparent transparent,
+                  map-get($settings-color, colorBluePurple),
+                  25px
+               );
+            }
+            &:after {
+               opacity: 1;
+               visibility: visible;
+            }
+         }
+      }
+   }
+   .card {
+      &-thumbnail {
+         position: relative;
+         width: 170px;
+         height: 170px;
+         @include breakpoint-down(575) {
+            width: 140px;
+            height: 140px;
+         }
+         &:before {
+            content: "";
+            @include corner-post(
+               map-get($settings-color, colorBluePurple) map-get($settings-color, colorBluePurple) transparent
+                  transparent,
+               #fff
+            );
+            z-index: 2;
+            transition: 0.2s;
+         }
+         &:after {
+            @include background-overlay(rgba(255, 255, 255, 0.8), 300ms ease-in-out);
+         }
+      }
+      &-title {
+         transition: 250ms ease-in-out;
+         .truncate-text {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+         }
+         &:hover {
+            text-decoration: underline;
+         }
+      }
+      &-img-top {
+         height: 100%;
+         object-fit: cover;
+         object-position: center;
+      }
+      &-description {
+         .truncate-text {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+         }
+      }
+   }
+}
+
+.grid-card {
+   .top-trending {
+      .card {
+         border-bottom: 1px solid #c2deea;
+      }
+      .card-thumbnail {
+         width: 70px;
+         height: 70px;
+      }
+      .grid-card {
+         &__item {
+            &:last-child {
+               .card {
+                  border-bottom: none;
+               }
+            }
+            &:hover {
+               .card-thumbnail {
+                  &:before {
+                     border-width: 10px;
+                  }
+               }
+            }
+         }
+      }
    }
 }

@@ -9,6 +9,12 @@
    top: 0;
 }
 
+.footer-logo {
+   @include breakpoint-down(667) {
+      max-width: 250px;
+   }
+}
+
 .coppyright {
    background: map-get($settings-color, colorBluePurple);
 }
