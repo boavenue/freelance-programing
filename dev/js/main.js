@@ -110,7 +110,6 @@ $.main = {
 		};
 
 		sliderElement.on("init", function (event, slick, direction) {
-			// console.log(slick);
 			let totalItem = slick.$slides.length;
 			$(".slider-banner-total").text(totalItem);
 		});

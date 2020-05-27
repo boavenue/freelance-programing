@@ -99,7 +99,6 @@ $.main = {
       slidesToShow: 1
     };
     sliderElement.on("init", function (event, slick, direction) {
-      // console.log(slick);
       var totalItem = slick.$slides.length;
       $(".slider-banner-total").text(totalItem);
     });

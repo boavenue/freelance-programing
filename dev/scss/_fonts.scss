@@ -33,4 +33,10 @@
   &--up {
     transform: rotate(-45deg);
   }
+  &--right {
+    transform: rotate(45deg);
+  }
+  &--left {
+    transform: rotate(-135deg);
+  }
 }

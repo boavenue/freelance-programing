@@ -73,6 +73,9 @@
 
 .txt-18 {
 	font-size: 18px;
+	@include breakpoint-down(575) {
+		font-size: 16px;
+	}
 }
 
 .txt-20 {
@@ -81,6 +84,9 @@
 
 .txt-24 {
 	font-size: 24px;
+	@include breakpoint-down(575) {
+		font-size: 20px;
+	}
 }
 
 .txt-32 {

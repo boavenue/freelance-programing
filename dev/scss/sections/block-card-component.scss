@@ -93,6 +93,11 @@
          display: block;
       }
    }
+   &-category {
+      .card-img-top {
+         max-height: 370px;
+      }
+   }
 }
 
 .grid-card {
@@ -187,6 +192,17 @@
                   }
                }
             }
+         }
+      }
+   }
+}
+
+.post-saved {
+   .item-link {
+      border-bottom: 1px solid map-get($settings-color, colorlightGrey01);
+      &:hover {
+         span {
+            color: map-get($settings-color, colorBluePurple);
          }
       }
    }

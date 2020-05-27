@@ -119,6 +119,26 @@
    }
 }
 
+.banner-page {
+   position: relative;
+   background-size: cover;
+   background-position: center;
+   overflow: hidden;
+   .triangle-wrap-pos {
+      position: absolute;
+      top: 0;
+      right: 50px;
+      .triangle-topright {
+         border-top: 50px solid #fff;
+         border-left: 50px solid transparent;
+      }
+      .triangle-bottomleft {
+         border-bottom: 50px solid map-get($settings-color, colorBluePurple);
+         border-right: 50px solid transparent;
+      }
+   }
+}
+
 .bg-overlay {
    position: fixed;
    top: 0;
