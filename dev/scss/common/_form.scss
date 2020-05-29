@@ -1,0 +1,17 @@
+.form-control-custom {
+   textarea {
+      &.form-control {
+         padding: 20px;
+         height: auto;
+      }
+   }
+   .form-control {
+      color: map-get($settings-color, colorDarkBlack);
+      border-radius: 5px;
+      height: 50px;
+      &:focus {
+         box-shadow: none;
+         border: 1px solid map-get($settings-color, colorBluePurple);
+      }
+   }
+}

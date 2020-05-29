@@ -3,7 +3,7 @@
       min-width: 170px;
       border: 1px solid map-get($settings-color, colorlightGrey01);
       color: map-get($settings-color, colorlightGrey01);
-      padding: 9px 12px 10px;
+      padding: 13px 12px;
       border-radius: 30px;
       font-size: 12px;
       outline: 0;
@@ -11,14 +11,14 @@
       box-shadow: none;
 
       &:hover {
-         color: #fff;
+         color: #fff !important;
          background-color: map-get($settings-color, colorBluePurple);
          border-color: map-get($settings-color, colorBluePurple);
       }
       &:focus {
          outline: 0;
          box-shadow: none;
-         color: #fff;
+         color: #fff !important;
          background-color: map-get($settings-color, colorBluePurple);
          border-color: map-get($settings-color, colorBluePurple);
       }
